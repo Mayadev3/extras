@@ -49,7 +49,7 @@ describe("LinkedList", () => {
             let list2 = new LinkedList(1);
             list2.addToTail(6);
             list2.addToTail(2);
-            list2.addToTail(7);
+            list2.addToTail(5);
             list2.addToTail(3);
             expect( linkedList.isEqual(list2) ).toBe(false);
         });
