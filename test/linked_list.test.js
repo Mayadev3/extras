@@ -86,9 +86,15 @@ describe("LinkedList", () => {
     });
 
     describe("sort()", () => {
-        test("sort the list in place", () => {
+        test("check next pointers between nodes", () => {
             linkedList.sort();
             expect( linkedList.toArray() ).toEqual([1, 2, 3, 4, 5, 6]);
+        });
+
+        test("check head and tail pointers", () => {
+            linkedList.sort();
+            expect( linkedList.head.value ).toBe(1);
+            expect( linkedList.tail.value ).toBe(6);
         });
     });
 });

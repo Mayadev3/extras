@@ -1,4 +1,8 @@
 
+/******
+ * Linked Lists
+ ******/
+
 
 class Node {
     constructor(value) {
@@ -83,14 +87,26 @@ class LinkedList {
     
     // Sort the list without creating new nodes
     sort() {
-        let arr = this.toArray();
-        arr.sort((a, b) => a - b);
-
+        // Create array with all Node objs
+        let objs = [];
         let node = this.head;
-        for (let num of arr) {
-            node.value = num;
+        while (node) {
+            objs.push(node);
             node = node.next;
         }
+
+        // Now we can easily sort the Node objs by value
+        objs.sort((a, b) => a.value - b.value);
+
+        // Update .next pointers to point to next obj in array
+        for (let i=0; i<objs.length-1; i++) {
+            objs[i].next = objs[i+1];
+        }
+        objs[objs.length-1].next = null;
+
+        // Update head/tail pointers
+        this.head = objs[0];
+        this.tail = objs[objs.length-1];
     }
 }  
 
